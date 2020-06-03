@@ -1,9 +1,13 @@
+div{
+  max-width: 100%;;
+}
+
 body{
     background-color: white;
   }
   .parent{
     border:1px solid red;
-    width: 400px;
+    /* width: 400px; */
     /* height: 400px; */
   }
   .parent div{
@@ -15,7 +19,7 @@ body{
   .merge{
     border:1px solid red;
     padding:10px 0px;
-    width: 400px;
+    /* width: 400px; */
   }
   .merge div{
     border:1px solid green;
@@ -25,12 +29,12 @@ body{
   .merge1{
     border:1px solid red;
     padding:10px 0px;
-    width: 400px;
+    /* width: 400px; */
   }
   .merge1 div{
     border:1px solid green;
     margin:10px 0px;
-    width: 399px;
+    max-width: 100%;
     display: inline-block;
   }
 

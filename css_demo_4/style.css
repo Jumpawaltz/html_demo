@@ -1,0 +1,37 @@
+body{
+    background-color: white;
+  }
+  .parent{
+    border:1px solid red;
+    width: 400px;
+    /* height: 400px; */
+  }
+  .parent div{
+    border:1px solid blue;
+    margin:10px 0;
+    /* height: auto; */
+  }
+  
+  .merge{
+    border:1px solid red;
+    padding:10px 0px;
+    width: 400px;
+  }
+  .merge div{
+    border:1px solid green;
+    margin:10px 0px;
+  }
+
+  .merge1{
+    border:1px solid red;
+    padding:10px 0px;
+    width: 400px;
+  }
+  .merge1 div{
+    border:1px solid green;
+    margin:10px 0px;
+    width: 399px;
+    display: inline-block;
+  }
+
+  

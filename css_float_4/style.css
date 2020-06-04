@@ -1,0 +1,110 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+ul {
+    display: inling-block;
+    /* border:1px solid red; */
+}
+
+.nav {
+    display: inline-block;
+    float: right;
+}
+
+ul>li {
+    /*   border:1px solid red; */
+    float: left;
+    padding: 4px 0.5em;
+    line-height: 32px;
+    color: white;
+}
+
+.logo>img {
+    height: 26px;
+    vertical-align: top;
+    margin-left: 10px;
+}
+
+.logo {
+    background-color: grey;
+    display: inline-block;
+    float: left;
+    margin-top: 8px;
+}
+
+header {
+    background-color: grey;
+}
+
+.content {
+    /* border:1px solid green; */
+    height: 300px;
+    width: 800px;
+    outline: 1px solid red;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px
+}
+
+.content>aside {
+    float: left;
+    width: 200px;
+    height: 300px;
+    background-color: #ccc;
+    /* border:1px solid red; */
+}
+
+.content>main {
+    /* border:1px solid blue; */
+    float: left;
+    width: 500px;
+    height: 300px;
+    background-color: #aaa;
+}
+
+.content>.ad {
+    width: 100px;
+    height: 300px;
+    float: left;
+    background: #ccc;
+}
+
+.imageList {
+    /* border:1px solid blue; */
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imageList>.x>.image {
+    border: 1px solid red;
+    width: 191px;
+    float: left;
+    height: 191px;
+    margin-right: 12px;
+    background-color: #000;
+    margin-top: 10px;
+    border: 33px solid green;
+}
+
+.imageList>.x {
+    margin-right: -12px;
+}

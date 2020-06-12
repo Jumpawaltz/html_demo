@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>画板</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <canvas id="canvas" width="100" height="100"></canvas>
+    <script>
+        let canvas = document.getElementById("canvas");         //获取元素
+        canvas.width = document.documentElement.clientWidth     //获取文档宽度
+        canvas.height = document.documentElement.clientHeight   //获取文档高度
+        let ctx = canvas.getContext("2d");
+        ctx.fillStyle = "black"; //填充颜色
+        ctx.strokeStyle = 'none' //描边风格 none
+        // ctx.fill();
+        ctx.lineWidth = 15;//线的宽度
+        ctx.lineCap = "round" //line 结尾处为圆
+
+        var isTouchDevice = 'ontouchstart' in document.documentElement  //判断是否触控
+        let last
+
+        function drawLine(x1, y1, x2, y2) { //设置函数 
+            ctx.beginPath();
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
+            ctx.stroke();
+            ctx.fill();
+        }
+
+        let painting = false    //初始化判断值                         
+        if (isTouchDevice) {
+            canvas.ontouchstart = (e) => { //设置手机起始的坐标
+                let X = e.touches[0].clientX  //赋值x 为触控X坐标
+                let Y = e.touches[0].clientY  //赋值Y 为触控Y坐标
+                last = [X, Y]
+
+            }
+            canvas.ontouchmove = (e) => {
+                let X = e.touches[0].clientX  //赋值x 为触控X坐标
+                let Y = e.touches[0].clientY  //赋值Y 为触控Y坐标
+                drawLine(last[0], last[1], X, Y) //将鼠标坐标赋值给线段坐标 
+                // console.log(last)    
+                last = [e.clientX, e.clientY]
+                console.log(X, Y)
+            }
+        } else {
+            canvas.onmousedown = (e) => {
+                painting = true     //按下鼠标改变判断值
+                last = [e.clientX, e.clientY]
+            }
+            canvas.onmousemove = (e) => {
+                if (painting === true) { //当判断值为true
+                    drawLine(last[0], last[1], e.clientX, e.clientY) //将鼠标坐标赋值给线段坐标 
+                    console.log(last)
+                    last = [e.clientX, e.clientY]
+
+                } else { //否则
+                    console.log('什么都不做')
+                }
+            }
+            canvas.onmouseup = () => {
+                painting = false    //鼠标抬起 判断值为false
+            }
+        }
+
+    </script>
+</body>
+
+</html>

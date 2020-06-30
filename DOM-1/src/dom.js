@@ -106,16 +106,16 @@ window.dom = {
         return Array.from(node.parentNode.children).filter(n => n !== node)
     },
     next(node) {
-        let x = node.next
-        while (x && x.nodeType === 3) {
-            x = x.nextSibling
+        let nextNode = node.next
+        while (nextNode && nextNode.nodeType === 3) {
+            nextNode = nextNode.nextSibling
         }
         return x
     },
     previous(node) {
-        let x = node.previousSibling
-        while (x && x.nodeType === 3) {
-            x = x.nextSibling
+        let previousNode = node.previousSibling
+        while (previousNode && previousNode.nodeType === 3) {
+            previousNode = previousNode.nextSibling
         }
         return x
     },

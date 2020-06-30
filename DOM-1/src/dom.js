@@ -110,7 +110,7 @@ window.dom = {
         while (nextNode && nextNode.nodeType === 3) {
             nextNode = nextNode.nextSibling
         }
-        return x
+        return nextNode
     },
     previous(node) {
         let previousNode = node.previousSibling

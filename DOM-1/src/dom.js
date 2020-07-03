@@ -58,7 +58,7 @@ window.dom = {
     html(node, string) {
         if (arguments.length == 2) {
             node.innerHTMl = string
-        } else (arguments.length === 1){
+        } else  if(arguments.length === 1){
             return node.innerHTMl
         }
     },
@@ -73,12 +73,12 @@ window.dom = {
                 for (let key in object) {
                     node.style[key] = object[key]
                 }
-            }
+            }                                                                
         }
     },
     class: {
-        add(node, className) {
-            node.classList.add(className)
+        add(node, className) {                                           
+            node.classList.add(className)                                                  
         },
         remove(node, className) {
             node.classList.remove(className)
@@ -88,7 +88,7 @@ window.dom = {
         }
     },
     on(node, eventName, fn) {
-        node, addEventListener(eventName, fn)
+        node.addEventListener(eventName, fn)
     },
     off(node, eventName, fn) {
         node.removeEventListener(eventName, fn)

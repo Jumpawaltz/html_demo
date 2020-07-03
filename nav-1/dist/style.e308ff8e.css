@@ -1,0 +1,55 @@
+/*resetCss*/
+*{box-sizing: border-box}
+*:before{box-sizing: border-box}
+*:after{box-sizing: border-box}
+*{margin: 0;padding: 0;}
+ul,li{list-style: none;}
+
+
+/*styleCss*/
+/*body{border: 1px solid red}*/
+.globalHeader{
+    margin:30px;
+    display: flex;
+    justify-content: space-between;
+}
+.globalHeader>input{
+    width: 100%;
+    height: 50px;
+    height: 50px;
+    margin-right: 20px;
+    padding: 0 10px;
+    border: 1px solid #333333;
+    border-radius: 5px;
+
+}
+.globalHeader>button{
+    white-space: nowrap;
+    padding: 12px;
+    width: 66px;
+    background-color: #307DFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+.globalMain{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.siteList{
+}
+.siteList>li{
+    width: 160px;
+    height: 160px;
+    background-color: yellow;
+}
+.siteList .site{}
+.siteList .site >.logo{}
+.siteList .site >.link{}
+.siteList .addButton{}
+
+
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */

@@ -118,7 +118,61 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"main.js":[function(require,module,exports) {
+var $siteList = $('.siteList');
+var $lastLi = $siteList.find('li.last');
+var siteDateLocalStroage = localStorage.getItem('siteDate');
+var siteDateLocalStorageObject = JSON.parse(siteDateLocalStroage);
+var hashMap = siteDateLocalStorageObject || [{
+  logo: 'C',
+  url: 'https://cnodejs.org'
+}, {
+  logo: 'G',
+  url: 'https://google.com'
+}, {
+  logo: 'B',
+  url: "https://bilibili.com"
+}];
 
+var simplify = function simplify(url) {
+  return url.replace('https://', '').replace('http://', '').replace('www.', '').replace(/\/.*/, '');
+};
+
+var render = function render() {
+  $siteList.find('li:not(.last)').remove();
+  hashMap.forEach(function (node, index) {
+    console.log(index);
+    var $li = $("<li>\n                <div class=\"site\">\n                    <div class=\"logo\">".concat(node.logo.toUpperCase(), "</div>\n                    <div class=\"link\">").concat(simplify(node.url), "</div>\n                    <div class=\"close\">\n                           <svg class=\"icon\" aria-hidden=\"true\">\n                        <use xlink:href=\"#icon-close\"></use>\n                    </svg>\n                    </div>\n                </div>\n        </li>")).insertBefore($lastLi);
+    $li.on('click', function () {
+      window.open(node.url);
+    });
+    $li.on('click', '.close', function (e) {
+      e.stopPropagation();
+      hashMap.splice(index, 1);
+      render();
+    });
+  });
+};
+
+render();
+$('.addButton').on('click', function () {
+  var url = window.prompt('请问你要添加什么网址?');
+
+  if (url.indexOf('http') !== 1) {
+    url = 'https://' + url;
+  }
+
+  hashMap.push({
+    logo: simplify(url)[0],
+    url: url
+  });
+  render();
+});
+
+window.onbeforeunload = function () {
+  var string = JSON.stringify(hashMap); //转化为字符串
+
+  localStorage.setItem('siteDate', string); //localsrorafe只能存字符串
+};
 },{}],"C:/Users/zy/AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -147,7 +201,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52639" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58581" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

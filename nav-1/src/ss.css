@@ -101,7 +101,7 @@ body {background: #EEE;}
     right: 10px;
     top: 5px;
     display: none;
-    cursor: default; /*光标样式*/
+    cursor: default;
 }
 .siteList .site:hover > .close {
     display: block;

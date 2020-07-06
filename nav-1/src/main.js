@@ -35,12 +35,11 @@ const render = () => {
         $li.on('click', () => {
             window.open(node.url)
         })
-        $li.on('click','.close',(e)=>{
-            e.stopPropagation()
-            hashMap.splice(index,1)
-            render()
+        $li.on('click', '.close', (e) => {
+                e.stopPropagation()
+                hashMap.splice(index, 1)
+                render()
             }
-
         )
     });
 }
@@ -60,3 +59,11 @@ window.onbeforeunload = () => {
     const string = JSON.stringify(hashMap) //转化为字符串
     localStorage.setItem('siteDate', string)  //localsrorafe只能存字符串
 }
+
+$(document).on('keypress',(e)=>{
+    const {key} = e
+    for (let i = 0; i <hashMap.length; i++) {
+        if (hashMap[i].logo.toLocaleLowerCase()===key)
+            window.open(hashMap[i].url)
+    }
+})
